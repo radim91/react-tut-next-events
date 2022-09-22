@@ -1,4 +1,6 @@
+import Head from 'next/head';
 import { useRouter } from 'next/router';
+import { Fragment } from 'react';
 import EventList from '../../components/Events/EventList';
 import ResultsTitle from '../../components/Events/ResultsTitle';
 import { getFilteredEvents } from '../../helpers/api-utils';
@@ -24,10 +26,25 @@ const FilteredEventsPage = (props) => {
   //   return <p className="center">Invalid filter.</p>;
   // }
 
+  const pageHeadData = (
+    <Head>
+      <title>Filtered Events</title>
+      <meta
+        name="description"
+        content={`All events for ${props.filteredYear}/${props.filteredMonth}`}
+      />
+    </Head>
+  );
+
   const filteredEvents = props.filteredEvents;
 
   if (!filteredEvents || filteredEvents.length === 0) {
-    return <p className="center">No events found.</p>;
+    return (
+      <Fragment>
+        {pageHeadData}
+        <p className="center">No events found.</p>
+      </Fragment>
+    );
   }
 
   const date = new Date(
@@ -37,6 +54,7 @@ const FilteredEventsPage = (props) => {
 
   return (
     <div>
+      {pageHeadData}
       <ResultsTitle date={date} />
       <EventList items={filteredEvents} />
     </div>

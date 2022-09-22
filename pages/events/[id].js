@@ -1,3 +1,4 @@
+import Head from 'next/head';
 import EventSummary from '../../components/EventDetail/EventSummary';
 import EventLogistics from '../../components/EventDetail/EventLogistics';
 import EventContent from '../../components/EventDetail/EventContent';
@@ -11,6 +12,9 @@ const EventDetail = (props) => {
 
   return (
     <Fragment>
+      <Head>
+        <title>{props.event.title}</title>
+      </Head>
       <EventSummary title={props.event.title} />
       <EventLogistics
         date={props.event.date}

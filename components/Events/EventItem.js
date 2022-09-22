@@ -1,3 +1,4 @@
+import Image from 'next/image';
 import Button from '../UI/Button';
 import AddressIcon from '../Icons/AddressIcon';
 import ArrowRightIcon from '../Icons/ArrowRightIcon';
@@ -16,7 +17,7 @@ const EventItem = (props) => {
 
   return (
     <li className={styles.item}>
-      <img src={`/${image}`} alt={title} />
+      <Image src={'/' + image} alt={title} width={250} height={160} />
       <div className={styles.content}>
         <div>
           <h2>{title}</h2>
