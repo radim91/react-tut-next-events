@@ -4,6 +4,7 @@ import EventLogistics from '../../components/EventDetail/EventLogistics';
 import EventContent from '../../components/EventDetail/EventContent';
 import { getEventById, getFeaturedEvents } from '../../helpers/api-utils';
 import { Fragment } from 'react';
+import Comments from '../../components/Input/Comments';
 
 const EventDetail = (props) => {
   if (!props.event) {
@@ -25,6 +26,7 @@ const EventDetail = (props) => {
       <EventContent>
         <p>{props.event.description}</p>
       </EventContent>
+      <Comments id={props.event.id} />
     </Fragment>
   );
 };

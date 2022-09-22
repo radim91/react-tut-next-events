@@ -2,6 +2,7 @@ import Head from 'next/head';
 import EventList from '../components/Events/EventList';
 import styles from '../styles/Home.module.css';
 import { getFeaturedEvents } from '../helpers/api-utils';
+import NewsletterRegistration from '../components/Input/NewsletterRegistration';
 
 const Home = (props) => {
   return (
@@ -13,6 +14,7 @@ const Home = (props) => {
           content="Find a lot of great events that allow you to evolve..."
         />
       </Head>
+      <NewsletterRegistration />
       <EventList items={props.featuredEvents} />
     </div>
   );
